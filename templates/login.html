@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growing Up - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Growing <span>Up!</span></h1>
+        <p style="color:red">{{passwordWrongText}}</p>
+        <form class="login-box" method="POST">
+            <div class="input-row">
+                <input type="text" name="username" placeholder="Username" required>
+                <div class="password-wrapper">
+                    <input type="password" name="password" placeholder="Password" id="password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">&#128065;</span>
+                </div>
+            </div>
+            <button type="submit">LOGIN</button>
+            <p>Not a member? <a href="register.html">SIGN UP NOW</a></p>
+        </form>
+
+        <style>
+            body {
+                background: linear-gradient(to top, #7cc576 40%, #a3e0ff 100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: "Calibri", sans-serif;
+                margin: 0;
+                min-height: 100vh;
+            }
+
+            .container {
+                text-align: center;
+                position: relative;
+            }
+
+            .login-box {
+                background: rgba(255, 255, 255, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+            }
+
+            .input-row {
+                display: flex; /* Enable flexbox for the input fields */
+                gap: 10px; /* Space between username and password inputs */
+            }
+
+            .password-wrapper {
+                position: relative;
+                flex-grow: 1; /* Allow password input to take up remaining space */
+            }
+
+            .input-row input[type="text"],
+            .password-wrapper input[type="password"] {
+                flex-grow: 1; /* Allow inputs to take up equal space */
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .toggle-password {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                cursor: pointer;
+                user-select: none;
+            }
+
+            button[type="submit"] {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+            .login-box p {
+                margin-top: 15px;
+            }
+
+            .login-box a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+            .login-box a:hover {
+                text-decoration: underline;
+            }
+        </style>
+
+        <script>
+            function togglePasswordVisibility() {
+                const passwordField = document.getElementById('password');
+                const toggleIcon = document.querySelector('.toggle-password');
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    toggleIcon.innerHTML = '&#128064;'; // Closed eye Unicode character
+                } else {
+                    passwordField.type = 'password';
+                    toggleIcon.innerHTML = '&#128065;'; // Open eye Unicode character
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baking Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    canvas {
+      border: 2px solid #e11d48;
+      background-color: #fff0f5;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-pink-100">
+  <h1 class="text-3xl font-bold text-red-700 mb-4">🧁 Baking Game: Collect the Cookies!</h1>
+  <p class="mb-4 text-lg">Use arrow keys to move and collect all the 🍪!</p>
+  <canvas id="gameCanvas" width="500" height="400"></canvas>
+  <p class="mt-4 text-lg">Score: <span id="score">0</span></p>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const player = { x: 50, y: 50, size: 30, speed: 5 };
+    let score = 0;
+    const scoreDisplay = document.getElementById("score");
+
+    const cookies = Array.from({ length: 5 }, () => ({
+      x: Math.random() * 470,
+      y: Math.random() * 370,
+      size: 20
+    }));
+
+    function drawPlayer() {
+      ctx.fillStyle = "#ef4444";
+      ctx.fillRect(player.x, player.y, player.size, player.size);
+    }
+
+    function drawCookies() {
+      ctx.font = "20px Arial";
+      for (const c of cookies) {
+        ctx.fillText("🍪", c.x, c.y);
+      }
+    }
+
+    function detectCollision(a, b) {
+      return (
+        a.x < b.x + b.size &&
+        a.x + a.size > b.x &&
+        a.y < b.y + b.size &&
+        a.y + a.size > b.y
+      );
+    }
+
+    function updateGame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawPlayer();
+      drawCookies();
+
+      for (let i = cookies.length - 1; i >= 0; i--) {
+        if (detectCollision(player, cookies[i])) {
+          cookies.splice(i, 1);
+          score++;
+          scoreDisplay.textContent = score;
+        }
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowUp") player.y -= player.speed;
+      if (e.key === "ArrowDown") player.y += player.speed;
+      if (e.key === "ArrowLeft") player.x -= player.speed;
+      if (e.key === "ArrowRight") player.x += player.speed;
+      updateGame();
+    });
+
+    updateGame();
+  </script>
+</body>
+</html>
+

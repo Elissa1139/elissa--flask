@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cooking Videos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='inner-pages.css') }}">
+</head>
+<body class="bg-orange-50 p-8 font-sans">
+
+  <div class="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow-md space-y-10">
+    <h1 class="text-3xl font-bold text-orange-700 text-center">🍽️ Cooking</h1>
+
+    <!-- Chinese Cuisine -->
+    <div>
+      <h2 class="text-2xl font-semibold text-red-600 mb-2">A. Chinese Cuisine - Cooking Noodles</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe class="w-full h-64 md:h-96 rounded-lg" src="https://www.youtube.com/embed/hB8W9tCi8is" title="Chinese Noodles" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Western Cuisine -->
+    <div>
+      <h2 class="text-2xl font-semibold text-blue-600 mb-2">B. Western Cuisine - Making Burgers</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe class="w-full h-64 md:h-96 rounded-lg" src="https://www.youtube.com/embed/HSz-iyZDaY4" title="Burger Recipe" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

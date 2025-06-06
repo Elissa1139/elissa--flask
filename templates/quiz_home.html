@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='inner-pages.css') }}">
+    <title>Quiz Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#f9f9f9]">
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-16 bg-white border-r flex flex-col items-center py-4 space-y-4">
+            <!-- Active icon box -->
+            <div class="bg-[#223142] p-2 rounded-md text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </div>
+
+            <!-- Page numbers -->
+            <div class="flex flex-col items-center space-y-2">
+                <a href="quiztime.html">
+                    <button class="bg-blue-100 text-blue-600 font-bold rounded-md px-2 py-1">1</button>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="flex-1 p-6">
+            <!-- Top bar -->
+            <div class="flex justify-between items-center mb-6">
+                <div class="text-xl font-handwriting">{{today_date}}</div>
+                <div class="flex items-center gap-2">
+                    <img src="https://emojicdn.elk.sh/🧑‍🌾" class="w-8 h-8" alt="Student Icon" />
+                    <span class="font-handwriting text-xl">{{student}}</span>
+                </div>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-2xl font-handwriting text-center mb-6">Quiz Dashboard</h1>
+
+            <!-- Assignment Box -->
+            <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md text-center space-y-6">
+                <!-- Assignment status -->
+                <div class="flex items-center justify-center gap-4">
+                    <span class="text-lg font-semibold text-gray-600">ASSIGNMENT STATUS</span>
+                    <span class="bg-yellow-400 text-white font-bold px-3 py-1 rounded-md">{{completed}}</span>
+                </div>
+
+                <!-- Sharing access -->
+                <div class="flex justify-center gap-4 items-center text-sm">
+                    <span class="text-gray-600 font-semibold">SHARING ACCESS</span>
+                    <div class="flex items-center gap-1 text-gray-800 font-bold">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 8h10M7 12h4m1 8h.01M12 3C7.58 3 4 6.58 4 11s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" />
+                        </svg>
+                        <a onclick="onClickEnabled()" id="sharing-access" style="cursor: pointer;">DISABLED</a>
+                        <script>
+                            function onClickEnabled() {
+                                const sharingAccessElement = document.getElementById('sharing-access');
+                                if (sharingAccessElement.textContent === 'DISABLED') {
+                                    sharingAccessElement.textContent = 'ENABLED';
+                                } else {
+                                    sharingAccessElement.textContent = 'DISABLED';
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-4 items-center text-sm">
+                    <span class="text-gray-600 font-semibold">Score: {{result}}</span>
+                </div>
+
+
+                <!-- Enter button -->
+                <a href="quiztime.html"
+                    class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-700 text-center inline-block">ENTER</a>
+            </div>
+        </div>
+    </div>
+
+    </script>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Japanese Strawberry Shortcake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: "Calibri", sans-serif;
+
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: rgb(255, 241, 242);
+      color: #333;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .rating {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .intro {
+      margin-bottom: 20px;
+    }
+
+    .recipe-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .recipe-meta span {
+      display: inline-block;
+    }
+
+    .image-print {
+      float: right;
+      margin-left: 20px;
+      text-align: center;
+    }
+
+    .image-print img {
+      width: 140px;
+      border-radius: 5px;
+    }
+
+    .btn-print {
+      display: inline-block;
+      margin-top: 10px;
+      background: #d94c4c;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-top: 40px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .scale-btns {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .scale-btns button {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      background: #eee;
+      cursor: pointer;
+    }
+
+    .ingredients {
+      margin: 15px 0;
+    }
+
+    .ingredients label {
+      display: block;
+      margin: 8px 0;
+    }
+
+    .section-image {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .section-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .instructions {
+      margin-top: 20px;
+    }
+
+    .instructions ol {
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 10px;
+    }
+
+    .cook-mode {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .cook-mode input {
+      transform: scale(1.1);
+    }
+
+    .image-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .image-section img {
+      width: 140px;
+      height: auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body class="bg-pink-50">
+
+  <h1>Japanese Strawberry Shortcake</h1>
+  <div class="rating">★★★★☆ 4.9 from 9 reviews</div>
+
+  <p>Soft and fluffy sponge cake filled with fresh strawberries lightly whipped vanilla cream. The perfect version of the classic Japanese-style strawberry shortcake. A classic asian-bakery style sponge and fluffy cream that melts in your mouth like a dream!</p>
+  
+  
+  <div class="image-section">
+      <img src="{{ url_for('static', filename='images/Shortcake.jpg') }}" alt="Shortcake">
+      <button class="btn-print">PRINT RECIPE</button>
+  </div>
+
+  <h2>Ingredients</h2>
+
+  <div class="ingredients">
+    <h3>Sponge</h3>
+    <label><input type="checkbox"> 4 large eggs</label>
+    <label><input type="checkbox"> 60g Whole milk (¼ cup)</label>
+    <label><input type="checkbox"> 45ml Vegetable oil (3 tbsp)</label>
+    <label><input type="checkbox"> 55g Cornstarch (⅓ cup 2 tbsp)</label>
+    <label><input type="checkbox"> 55g All-purpose flour (½ cup)</label>
+    <label><input type="checkbox"> 90g Granulated sugar (½ cup 2 tbsp)</label>
+
+
+    <h3>Simple Syrup</h3>
+    <label><input type="checkbox"> 65g Granulated sugar (⅓ cup)</label>
+    <label><input type="checkbox"> 80ml Water (⅓ cup)</label>
+
+    <h3>Whipped Cream</h3>
+    <label><input type="checkbox"> 600ml Whipping cream (2½ cups)</label>
+    <label><input type="checkbox"> 100g Granulated sugar (½ cup)</label>
+    <label><input type="checkbox"> 1 tsp Vanilla extract</label>
+
+    <h3>Assembly</h3>
+    <label><input type="checkbox"> 370g Strawberries (13 oz)</label>
+
+    <div class="cook-mode">
+      <input type="checkbox"> Cook Mode <span>Prevent your screen from going dark</span>
+    </div>
+  </div>
+
+  <h2>Instructions</h2>
+
+  <div class="instructions">
+    <h3>Sponge</h3>
+    <ol>
+      <li>Preheat the oven to 140°C fan forced / 150°C convection.</li>
+      <li>Line the bottom of an 8-inch cake tin with parchment paper.</li>
+      <li>In a medium-sized bowl whisk the egg yolks, milk, and oil.</li>
+      <li>Sift the flour into the egg yolk mixture and mix until combined.</li>
+      <li>In another bowl, beat egg whites with sugar until stiff peaks form.</li>
+      <li>Add ⅓ of the meringue to the yolk mixture and fold gently.</li>
+      <li>Fold remaining meringue until just combined.</li>
+      <li>Transfer batter to cake tin.</li>
+      <li>Place in water bath and bake for 70 mins.</li>
+      <li>Remove and allow to cool completely.</li>
+      <li>Run knife around edges and invert.</li>
+      <li>Wrap in cling film and refrigerate until assembly.</li>
+    </ol>
+
+    <h3>Whipped Cream</h3>
+    <ol>
+      <li>Whip cream with sugar until soft peaks form.</li>
+      <li>Beat until stiff peaks.</li>
+    </ol>
+
+    <h3>Assembly</h3>
+    <ol>
+      <li>Combine sugar and water, microwave until dissolved.</li>
+      <li>Slice half the strawberries.</li>
+      <li>Slice cooled cake into three layers.</li>
+      <li>Brush first layer with syrup.</li>
+      <li>Layer with cream, strawberries, more cream. Repeat.</li>
+      <li>Top with sponge and crumb coat with cream.</li>
+      <li>Pipe remaining cream with a star tip.</li>
+      <li>Decorate with remaining strawberries.</li>
+    </ol>
+  </div>
+
+</body>
+</html>

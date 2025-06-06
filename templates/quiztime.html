@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Quiz for Students</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='inner-pages.css') }}">
+  <style>
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    h2 {
+      color: #2a9d8f;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #2a9d8f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #21867a;
+    }
+
+    .result {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="quiz-container">
+    <h2>Quiz for Students!</h2>
+    <form id="quizForm" method="POST">
+      <!-- Question 1 -->
+      <div class="question">
+      <p>1. What is money used for?</p>
+      <label><input type="radio" name="q1" value="a"> To buy things we need and want</label><br>
+      <label><input type="radio" name="q1" value="b"> To play games</label><br>
+      <label><input type="radio" name="q1" value="c"> To decorate the house</label>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+      <p>2. What is NOT a type of insurance?</p>
+      <label><input type="radio" name="q2" value="a"> Health Insurance </label><br>
+      <label><input type="radio" name="q2" value="b"> Life Insurance </label><br>
+      <label><input type="radio" name="q2" value="c"> Money Insurance </label>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+      <p>3. When a person do when in a fire situation?</p>
+      <label><input type="radio" name="q3" value="a"> Takes the lift to run away</label><br>
+      <label><input type="radio" name="q3" value="b"> Cover with a wet blanket</label><br>
+      <label><input type="radio" name="q3" value="c"> Lie in Bed and Scream for help </label>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+      <p>4. What ingredient is needed for baking? </p>
+      <label><input type="radio" name="q4" value="a"> Eggs</label><br>
+      <label><input type="radio" name="q4" value="b"> Flour</label><br>
+      <label><input type="radio" name="q4" value="c"> Oil</label><br>
+      </div>
+      <div class="question">
+        <p>5. What is a healthy type of cooking?</p>
+        <label><input type="radio" name="q5" value="a"> Steaming </label><br>
+        <label><input type="radio" name="q5" value="b"> Frying</label><br>
+        <label><input type="radio" name="q5" value="c"> Barbeque </label><br>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>

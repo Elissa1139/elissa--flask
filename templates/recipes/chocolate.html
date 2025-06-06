@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Ultimate Fudgy Brownies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='inner-pages.css') }}">
+  <style>
+    body {
+       font-family: "Calibri", sans-serif;
+
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: rgb(255, 241, 242);
+      color: #333;
+    }
+
+    h1 {
+      font-size: 28px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .stars, .author, .meta, .category, .buttons {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .image-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .image-section img {
+      width: 140px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .button-print {
+      background-color: #d94c4c;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      font-size: 20px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    .ingredients {
+      margin-top: 20px;
+    }
+
+    .ingredients label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .instructions ol {
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 12px;
+    }
+
+    .cook-mode {
+      margin-top: 10px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bottom-note {
+      margin-top: 50px;
+      font-style: italic;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .scale-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .scale-buttons button {
+      border: 1px solid #ccc;
+      background-color: #eee;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .highlight {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>The Ultimate Fudgy Brownies</h1>
+  <div class="stars">★★★★★ 5 from 7 reviews</div>
+
+  <p>The recipe for the ultimate thick and fudgy brownies with a shiny crackly crust. Learn the secret to creating the perfect brownie with the trademark cracked crust and rich, fudgy interior.</p>
+
+  <div class="image-section">
+    
+      <img src="{{ url_for('static', filename='images/brownies.png') }}" alt="Fudgy Brownies">
+      <button class="button-print">PRINT RECIPE</button>
+    </div>
+  </div>
+
+  <div class="section-title">Ingredients</div>
+
+  <div class="ingredients">
+    <label><input type="checkbox"> 250 g Unsalted butter, melted (1 cup)</label>
+    <label><input type="checkbox"> 200 g Semisweet chocolate (7.5 oz)</label>
+    <label><input type="checkbox"> 4 Eggs, room temperature</label>
+    <label><input type="checkbox"> 360 g Caster sugar (1½ cups)</label>
+    <label><input type="checkbox"> 65 g Flour (½ cup)</label>
+    <label><input type="checkbox"> 80 g Cocoa powder (1 cup), dutch processed</label>
+    <label><input type="checkbox"> 1 tsp Baking powder</label>
+    <label><input type="checkbox"> Pinch of salt</label>
+    <label><input type="checkbox"> 125 g Walnuts, roughly chopped (1 cup), optional</label>
+    <label><input type="checkbox"> Pinch of flakey salt, for sprinkling</label>
+  </div>
+
+  <div class="cook-mode">
+    <input type="checkbox"> Cook Mode <span>Prevent your screen from going dark</span>
+  </div>
+
+  <div class="section-title">Instructions</div>
+
+  <div class="instructions">
+    <ol>
+      <li>Preheat the oven to 180°C (360°F).</li>
+      <li>Melt the butter and chocolate together in a medium sized bowl over a hot water bath or in the microwave.</li>
+      <li>In a large bowl add the eggs and caster sugar, whisk until smooth.</li>
+      <li>Add the chocolate and butter mixture into the eggs, stirring until combined.</li>
+      <li>Using an electric beater, beat the eggs and chocolate until doubled in volume and paler in colour (this will take some time, but it is the trick to getting that beautiful shiny crust and finish).</li>
+      <li>Add the flour, cocoa powder, baking powder and salt, mix until just combined.</li>
+      <li>Fold in the walnuts (optional).</li>
+      <li>Pour into a brownie pan (8 x 8 inches) and bake for 25–30 minutes. A toothpick inserted should come out with a few gooey crumbs.</li>
+      <li>Cool, sprinkle with flakey salt and cut into squares.</li>
+    </ol>
+  </div>
+
+
+</body>
+</html>
+

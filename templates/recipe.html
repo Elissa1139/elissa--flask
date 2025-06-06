@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clickable Recipe Grid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-50 min-h-screen flex items-center justify-center p-10">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
+
+    <!-- Card 1 -->
+    <a href="chocolate.html" class="block bg-white rounded-xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+      <img src="{{ url_for('static', filename='images/brownies.png') }}" alt="Brownies" class="w-full h-56 object-cover">
+      <div class="p-4">
+        <p class="text-pink-600 text-sm font-medium">Bars & Slices | Chocolate</p>
+        <h3 class="text-pink-700 font-bold text-lg mt-1">THE ULTIMATE FUDGY BROWNIES</h3>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="shortcake.html" class="block bg-white rounded-xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+      <img src="{{ url_for('static', filename='images/Shortcake.jpg') }}"alt="Shortcake" class="w-full h-56 object-cover">
+      <div class="p-4">
+        <p class="text-pink-600 text-sm font-medium">Cake | Fruity</p>
+        <h3 class="text-pink-700 font-bold text-lg mt-1">JAPANESE STRAWBERRY SHORTCAKE</h3>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="mochi.html" class="block bg-white rounded-xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+      <img src="{{ url_for('static', filename='images/mochi.jpg') }}"alt="Mochi Donuts" class="w-full h-56 object-cover">
+      <div class="p-4">
+        <p class="text-pink-600 text-sm font-medium">Donut | Mochi</p>
+        <h3 class="text-pink-700 font-bold text-lg mt-1">BAKED MOCHI DONUTS (AKA PON DE RING)</h3>
+      </div>
+    </a>
+
+
+    <!-- Card 4 -->
+    <a href="salted-cookies.html" class="block bg-white rounded-xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+      <img src="{{ url_for('static', filename='images/chocolate.webp') }}" alt="Salted Cookies" class="w-full h-56 object-cover">
+      <div class="p-4">
+        <p class="text-pink-600 text-sm font-medium">Chocolate | Cookie</p>
+        <h3 class="text-pink-700 font-bold text-lg mt-1">SALTED DARK CHOCOLATE COOKIES</h3>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="pudding.html" class="block bg-white rounded-xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+      <img src="{{ url_for('static', filename='images/pudding.jpg') }}" alt="Sticky Toffee Pudding" class="w-full h-56 object-cover">
+      <div class="p-4">
+        <p class="text-pink-600 text-sm font-medium">Cake | Pudding</p>
+        <h3 class="text-pink-700 font-bold text-lg mt-1">STICKY TOFFEE PUDDING W/ ICE CREAM</h3>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="game.exe" download class="block bg-white rounded-xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+      <img src="{{ url_for('static', filename='images/gameicon.png') }}" alt="Download Backing Adventure" class="w-full h-56 object-cover">
+      <div class="p-4">
+        <p class="text-pink-600 text-sm font-medium">Game</p>
+        <h3 class="text-pink-700 font-bold text-lg mt-1">Download Baking Adventure</h3>
+      </div>
+    </a>
+
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Music - Sing Along</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='inner-pages.css') }}">
+</head>
+
+<body class="bg-indigo-50 p-8 font-sans">
+
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-lg space-y-6">
+    <h1 class="text-3xl font-bold text-indigo-700 text-center">🎶 Music</h1>
+    <h2 class="text-xl font-semibold text-indigo-600 text-center">Sing along Taylor Swift song</h2>
+
+    <!-- YouTube Video Embed -->
+    <div class="aspect-w-16 aspect-h-9">
+      <video class="w-full h-64 md:h-96 rounded-lg" controls>
+        <source src="{{ url_for('static', filename='videos/music_video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

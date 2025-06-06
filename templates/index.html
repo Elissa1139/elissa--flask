@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Growing Up - Assignments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* General Styling */
+    body {
+      background: linear-gradient(to top, #7cc576 40%, #a3e0ff 100%);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: "Calibri", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 40px;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+
+    .subject-img {
+      border-radius: 25px;
+      overflow: hidden;
+      border: 3px solid black;
+      width: 280px;
+      height: 160px;
+    }
+
+    /* Chatbox Styling */
+    .chatbox {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 400px;
+      height: 600px;
+      border: 1px solid #ccc;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    /* Chatbox-Left Styling */
+    .chatbox-left {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 400px;
+      height: 600px;
+      border: 1px solid #ccc;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    /* Top Header Bar */
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 10px;
+      background-color: #f5f5f5;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+    }
+
+    /* Center Title */
+    .chat-title {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    /* Close Button */
+    .close-button {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 5px;
+    }
+
+    .chat-input button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body class="p-4">
+
+  <!-- Top Bar -->
+  <div class="flex justify-between items-center mb-6">
+    <div class="text-black text-xl">{{today_date}}</div>
+    <div>
+      <a href="/logout.html">
+      <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Logout</button>
+      </a>
+    </div></a>
+  </div>
+
+  <!-- Title Section -->
+  <div class="text-center mb-4">
+    <div class="title text-orange-500">GROWING <span class="text-blue-600">UP</span></div>
+    <div class="subtitle">ASSIGNMENTS</div>
+  </div>
+
+  <!-- Grid of Assignments -->
+  <div class="grid grid-cols-3 grid-rows-2 gap-8 justify-items-center mt-8">
+
+    <!-- Box 1: Finance -->
+    <div class="text-center relative">
+      {% if module1_completed %}
+      <div class="absolute top-0 left-0 m-2">
+        <span class="inline-block bg-yellow-400 text-black rounded-full px-2 py-1 text-s font-bold shadow-lg">
+        Completed
+        </span>
+      </div>
+      {% endif %}
+      <a href="Finance.html" class="mt-2 text-lg font-semibold text-emerald-900">
+      <div class="subject-img">
+        <img src="{{ url_for('static', filename='images/finance.jpeg') }}" alt="Finance" class="w-full h-full object-cover" />
+      </div>
+      <div class="mt-2 text-lg font-semibold text-emerald-900">Finance</div>
+      </a>
+    </div>
+
+    <!-- Box 2: Survival Skills -->
+    <div class="text-center relative">
+      {% if module2_completed %}
+      <div class="absolute top-0 left-0 m-2">
+        <span class="inline-block bg-yellow-400 text-black rounded-full px-2 py-1 text-s font-bold shadow-lg">
+        Completed
+        </span>
+      </div>
+      {% endif %}
+      <a href="Survivalskills.html" class="mt-2 text-lg font-semibold text-emerald-900">
+      <div class="subject-img">
+        <img src="{{ url_for('static', filename='images/earthquake.jpg') }}" alt="Survival Skills" class="w-full h-full object-cover" />
+      </div>
+      <div class="mt-2 text-lg font-semibold text-emerald-900">Survival Skills</div>
+      </a>
+    </div>
+
+    <!-- Box 3: Baking -->
+    <div class="text-center relative">
+      {% if module3_completed %}
+      <div class="absolute top-0 left-0 m-2">
+        <span class="inline-block bg-yellow-400 text-black rounded-full px-2 py-1 text-s font-bold shadow-lg">
+        Completed
+        </span>
+      </div>
+      {% endif %}
+      <a href="cooking.html" class="mt-2 text-lg font-semibold text-emerald-900">
+      <div class="subject-img">
+        <img src="{{ url_for('static', filename='images/Donut.jpeg') }}"alt="Baking" class="w-full h-full object-cover" />
+      </div>
+      <div class="mt-2 text-lg font-semibold text-emerald-900">Baking</div>
+      </a>
+    </div>
+
+    <!-- Box 4: Cooking -->
+    <div class="text-center relative">
+      {% if module4_completed %}
+      <div class="absolute top-0 left-0 m-2">
+        <span class="inline-block bg-yellow-400 text-black rounded-full px-2 py-1 text-s font-bold shadow-lg">
+        Completed
+        </span>
+      </div>
+      {% endif %}
+      <a href="cuisine.html" class="mt-2 text-lg font-semibold text-emerald-900">
+      <div class="subject-img">
+        <img src="{{ url_for('static', filename='images/cooking.jpg') }}" alt="Cooking" class="w-full h-full object-cover" />
+      </div>
+      <div class="mt-2 text-lg font-semibold text-emerald-900">Cooking</div>
+      </a>
+    </div>
+
+    <!-- Box 5: Music -->
+    <div class="text-center relative">
+      {% if module5_completed %}
+      <div class="absolute top-0 left-0 m-2">
+        <span class="inline-block bg-yellow-400 text-black rounded-full px-2 py-1 text-s font-bold shadow-lg">
+        Completed
+        </span>
+      </div>
+      {% endif %}
+      <a href="music.html" class="mt-2 text-lg font-semibold text-emerald-900">
+      <div class="subject-img">
+        <img src="{{ url_for('static', filename='images/music.jpeg') }}" alt="Music" class="w-full h-full object-cover" />
+      </div>
+      <div class="mt-2 text-lg font-semibold text-emerald-900">Music</div>
+      </a>
+    </div>
+
+    <!-- Box 6: Placeholder -->
+    <div class="text-center relative">
+      {% if module6_completed %}
+      <div class="absolute top-0 left-0 m-2">
+        <span class="inline-block bg-yellow-400 text-black rounded-full px-2 py-1 text-s font-bold shadow-lg">
+        Completed
+        </span>
+      </div>
+      {% endif %}
+      <a href="quiz_home.html" class="mt-2 text-lg font-semibold text-emerald-900">
+      <div class="subject-img">
+        <img src="{{ url_for('static', filename='images/quiztime.png') }}" alt="Learning" class="w-full h-full object-cover" />
+      </div>
+      <div class="mt-2 text-lg font-semibold text-emerald-900">Learning</div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Chat Toggle Button -->
+  <button id="chat-toggle" class="fixed bottom-6 right-6 bg-blue-600 text-white text-2xl p-3 rounded-full shadow-lg hover:bg-blue-700 z-50">
+    <img src="{{ url_for('static', filename='images/ai.png') }}" alt="Ask Growing Up" class="w-8 h-8 inline-block mr-2" />
+    Ask Growing Up
+  </button>
+
+   <!-- Chat Toggle Button -->
+  <button id="chat-toggle-left" class="fixed bottom-6 left-6 bg-blue-600 text-white text-2xl p-3 rounded-full shadow-lg hover:bg-blue-700 z-50">
+    <img src="{{ url_for('static', filename='images/ai.png') }}" alt="Ask Growing Up" class="w-8 h-8 inline-block mr-2" />
+    Ask AI
+  </button>
+
+  <!-- Chatbox -->
+  <div id="chatbox" class="chatbox hidden">
+    <div class="chat-header">
+      <span class="chat-title">Ask Growing Up</span>
+      <button class="close-button" onclick="closeChat()">✖</button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Chatbox -->
+  <div id="chatbox-left" class="chatbox-left hidden">
+    <div class="chat-header">
+      <span class="chat-title">Ask AI</span>
+      <button class="close-button" onclick="closeChatAi()">✖</button>
+    </div>
+    <div id="chat-messages-left" class="chat-messages"></div>
+    <div class="chat-input">
+      <input type="text" id="user-input-left" placeholder="Type your message..." />
+      <button onclick="sendMessageForAI()">Send</button>
+    </div>
+  </div>
+
+  <!-- Chat Script -->
+  <script>
+    const chatToggle = document.getElementById("chat-toggle");
+    const chatToggleLeft = document.getElementById("chat-toggle-left");
+    const chatbox = document.getElementById("chatbox");
+    const chatboxLeft = document.getElementById("chatbox-left");
+
+    chatToggle.addEventListener("click", () => {
+      chatbox.classList.toggle("hidden");
+    });
+
+    chatToggleLeft.addEventListener("click", () => {
+      chatboxLeft.classList.toggle("hidden");
+    });
+
+    function sendMessage() {
+      const inputField = document.getElementById("user-input");
+      const message = inputField.value.trim();
+      if (!message) return;
+
+      const chatMessages = document.getElementById("chat-messages");
+      chatMessages.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+      inputField.value = "";
+
+      fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        chatMessages.innerHTML += `<div><strong>Bot:</strong> ${data.response}</div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      });
+    }
+
+    function sendMessageForAI() {
+      const inputField = document.getElementById("user-input-left");
+      const message = inputField.value.trim();
+      if (!message) return;
+
+      const chatMessages = document.getElementById("chat-messages-left");
+      chatMessages.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+      inputField.value = "";
+
+      fetch("/chat-global", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        chatMessages.innerHTML += `<div><strong>Bot:</strong> ${data.response}</div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      });
+    }
+
+    function closeChat() {
+      document.getElementById('chatbox').classList.add('hidden');
+    }
+
+    function closeChatAi() {
+      document.getElementById('chatbox-left').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
