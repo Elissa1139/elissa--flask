@@ -1,0 +1,14 @@
+[
+    {
+        "user_id": "elissa_99",
+        "name": "Elissa",
+        "password": "password123",
+        "score": 150
+    },
+    {
+        "user_id": "dev_alex",
+        "name": "Alex",
+        "password": "abc",
+        "score": 50
+    }
+]
