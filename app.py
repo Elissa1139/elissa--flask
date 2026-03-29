@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 import requests
 import ollama
+import json
+import os
 from flask_cors import CORS
 from datetime import datetime
+
 
 
 
@@ -22,15 +25,55 @@ chat_history = [
     }
 ]
 
-user_data = [
-    {
-        "user_id": "user1",
-        "password": "abc",
-        "name": "Elissa",
-        "completed":[],
+
+
+# 1. LOAD DATA: This "un-fixes" the data by reading it from a file
+def load_data():
+    if os.path.exists('users.json'):
+        with open('users.json', 'r') as file:
+            return json.load(file)
+    return [] # Return empty list if no file exists yet
+
+# 2. SAVE DATA: This ensures new users are remembered next time
+def save_data(data):
+    with open('users.json', 'w') as file:
+        json.dump(data, file, indent=4)
+
+# --- MAIN PROGRAM ---
+user_list = load_data()
+
+print("Welcome! Would you like to (1) Register or (2) Login?")
+choice = input("> ")
+
+if choice == "1":
+    # KEYING IN DETAILS: No longer hard-coded!
+    new_id = input("Create User ID: ")
+    new_name = input("Enter your Name: ")
+    new_pw = input("Create Password: ")
+
+    new_user = {
+        "user_id": new_id,
+        "name": new_name,
+        "password": new_pw,
         "score": 0
     }
-]
+
+    user_list.append(new_user)
+    save_data(user_list)
+    print(f"Success! Account created for {new_name}.")
+
+elif choice == "2":
+    login_id = input("User ID: ")
+    login_pw = input("Password: ")
+
+    # Check the "Database" for a match
+    for user in user_list:
+        if user["user_id"] == login_id and user["password"] == login_pw:
+            print(f"Hello {user['name']}! Your current score is {user['score']}.")
+            break
+    else:
+        print("User not found or wrong password.")
+
 
 current_user="Elissa"
 
