@@ -38,7 +38,12 @@ current_user="Elissa"
 def home():
     return render_template('login.html')
 
-today = datetime.today().strftime('%d/%m/%Y')  # Format date as 31/02/2025
+
+
+# Using an f-string (cleaner and faster)
+now = datetime.now()
+today = f"{now:%d/%m/%Y %H:%M:%S}"
+print(today) # Format date as 31/02/2025
 
 @app.route('/login.html', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
