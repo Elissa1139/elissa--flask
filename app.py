@@ -67,13 +67,18 @@ elif choice == "2":
     login_pw = input("Password: ")
 
     # Check the "Database" for a match
-    for user in user_list:
-        if user["user_id"] == login_id and user["password"] == login_pw:
-            print(f"Hello {user['name']}! Your current score is {user['score']}.")
-            break
-    else:
-        print("User not found or wrong password.")
+   logged_in_user = None # Start with nobody logged in
 
+for user in user_list:
+    if user["user_id"] == login_id and user["password"] == login_pw:
+        logged_in_user = user  # <--- This "saves" the person into a variable
+        print(f"Welcome back, {logged_in_user['name']}!")
+        break
+
+# Now, later in your code, you can do this:
+if logged_in_user:
+    logged_in_user['score'] += 10  # Give them points!
+    save_data(user_list)           # Save their new score to the JSON file
 
 current_user="Elissa"
 
