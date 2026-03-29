@@ -93,7 +93,7 @@ now = datetime.now()
 today = f"{now:%d/%m/%Y %H:%M:%S}"
 print(today) # Format date as 31/02/2025
 
-@app.route('/login.html', methods=['GET', 'POST'])
+@app.route('/login.html', methods=['GET', 'POST']) #  post = This is used when the user clicks the "Submit" button.
 @app.route('/', methods=['GET', 'POST'])
 def login():
 
